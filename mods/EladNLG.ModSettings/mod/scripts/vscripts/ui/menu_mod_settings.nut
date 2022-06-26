@@ -57,16 +57,16 @@ void function InitModMenu()
 	// most of these are overrided in the cfg, maybe ask bob to remove the cfg stuff from there?
 	// at the same time, might fuck with dedis so idk.
 	// these are pretty long too, might need to e x t e n d the settings menu
-	AddConVarSettingEnum("ns_private_match_only_host_can_change_settings", "Only Allow Host to Change Private Match Settings", "Northstar - Private Match", [ "No", "Yes" ])
-	AddConVarSettingEnum("ns_private_match_only_host_can_change_settings", "Only Allow Host to Start the Match", "Northstar - Private Match", [ "No", "Yes" ])
-	AddConVarSetting("ns_private_match_countdown_length", "Private Match Countdown Duration", "Northstar - Private Match", "float")
-	AddConVarSettingEnum("ns_private_match_only_host_can_change_settings", "Override Max Player Count", "Northstar - Server", [ "No", "Yes" ])
-	AddConVarSettingEnum("ns_should_log_unknown_clientcommands", "Log Unknown Client Commands", "Northstar - Server", [ "No", "Yes" ])
-	AddConVarSetting("ns_disallowed_tacticals", "Disallowed Tacticals", "Northstar - Server")
-	AddConVarSetting("ns_disallowed_tactical_replacement", "Replacement Tactical", "Northstar - Server")
-	AddConVarSetting("ns_disallowed_weapons", "Disallowed Weapons", "Northstar - Server")
-	AddConVarSetting("ns_disallowed_weapon_primary_replacement", "Replacement Weapon", "Northstar - Server")
-	AddConVarSettingEnum("ns_should_return_to_lobby", "Return To Lobby After Match End", "Northstar - Server", [ "No", "Yes" ])
+	//AddConVarSettingEnum("ns_private_match_only_host_can_change_settings", "Only Allow Host to Change Private Match Settings", "Northstar - Private Match", [ "No", "Yes" ])
+	//AddConVarSettingEnum("ns_private_match_only_host_can_change_settings", "Only Allow Host to Start the Match", "Northstar - Private Match", [ "No", "Yes" ])
+	//AddConVarSetting("ns_private_match_countdown_length", "Private Match Countdown Duration", "Northstar - Private Match", "float")
+	//AddConVarSettingEnum("ns_private_match_only_host_can_change_settings", "Override Max Player Count", "Northstar - Server", [ "No", "Yes" ])
+	//AddConVarSettingEnum("ns_should_log_unknown_clientcommands", "Log Unknown Client Commands", "Northstar - Server", [ "No", "Yes" ])
+	//AddConVarSetting("ns_disallowed_tacticals", "Disallowed Tacticals", "Northstar - Server")
+	//AddConVarSetting("ns_disallowed_tactical_replacement", "Replacement Tactical", "Northstar - Server")
+	//AddConVarSetting("ns_disallowed_weapons", "Disallowed Weapons", "Northstar - Server")
+	//AddConVarSetting("ns_disallowed_weapon_primary_replacement", "Replacement Weapon", "Northstar - Server")
+	//AddConVarSettingEnum("ns_should_return_to_lobby", "Return To Lobby After Match End", "Northstar - Server", [ "No", "Yes" ])
 
 	// Nuke weird rui on filter switch :D
 	//RuiSetString( Hud_GetRui( Hud_GetChild( file.menu, "SwtBtnShowFilter")), "buttonText", "")
@@ -295,6 +295,12 @@ void function UpdateList()
 	array<ConVarData> filteredList = []
 
 	string lastModNameInFilter = ""
+
+	if(file.conVarList.len()==0)
+	{
+		return
+	}
+
 	ConVarData curModConVar = file.conVarList[0]
 	for (int i = 0; i < file.conVarList.len(); i++)
 	{
