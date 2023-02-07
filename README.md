@@ -1,3 +1,5 @@
+注意：该ModSettings修改自原mod最初版（v1），用于支持在官服上初版HUDRevamp的使用；GtJt.HUDRevamp则需要ModSettings v2的支持
+
 # ModSettings
 A mod that adds a settings menu for modders to add their own settings in - with a filter to find certain ones easily.
 
